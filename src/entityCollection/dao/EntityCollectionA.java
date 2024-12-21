@@ -24,6 +24,7 @@ public class EntityCollectionA implements EntityCollection {
                 res = entity;
             }
         }
+        set.remove(res);
         return res;
     }
 }
