@@ -8,7 +8,7 @@ public class EntityCollectionA implements EntityCollection {
     private HashSet<Entity> set;
 
     public EntityCollectionA() {
-        set=new HashSet<>();
+        set = new HashSet<>();
     }
 
     @Override
@@ -19,9 +19,9 @@ public class EntityCollectionA implements EntityCollection {
     @Override
     public Entity removeMaxValue() {
         Entity res = null;
-        for(Entity entity:set){
-            if (res==null || entity.getValue()>res.getValue()){
-                res=entity;
+        for (Entity entity : set) {
+            if (res == null || entity.getValue() > res.getValue()) {
+                res = entity;
             }
         }
         return res;

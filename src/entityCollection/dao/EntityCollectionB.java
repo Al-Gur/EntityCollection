@@ -7,8 +7,9 @@ import java.util.TreeSet;
 
 public class EntityCollectionB implements EntityCollection {
     private TreeSet<Entity> set;
+
     public EntityCollectionB() {
-        set=new TreeSet<>(Comparator.comparingInt(Entity::getValue));
+        set = new TreeSet<>(Comparator.comparingInt(Entity::getValue));
     }
 
     @Override
