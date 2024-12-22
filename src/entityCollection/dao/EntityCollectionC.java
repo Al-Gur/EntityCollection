@@ -13,16 +13,16 @@ public class EntityCollectionC implements EntityCollection {
         list = new ArrayList<>();
     }
 
+    // O(n)
     @Override
     public void add(Entity entity) {
         int index = Collections.binarySearch(list, entity, Comparator.comparingInt(Entity::getValue));
         if (index < 0) {
             list.add(-index - 1, entity);
-        } else {
-            System.out.println(entity.getValue() + " is not unique");
         }
     }
 
+    // O(1)
     @Override
     public Entity removeMaxValue() {
         return list.remove(list.size() - 1);

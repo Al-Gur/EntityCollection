@@ -2,29 +2,30 @@ package entityCollection.dao;
 
 import entityCollection.model.Entity;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class EntityCollectionA implements EntityCollection {
-    private HashSet<Entity> set;
+    private HashMap<Integer, Entity> map;
 
     public EntityCollectionA() {
-        set = new HashSet<>();
+        map = new HashMap<>();
     }
 
+    // O(1)
     @Override
     public void add(Entity entity) {
-        set.add(entity);
+        map.putIfAbsent(entity.getValue(), entity);
     }
 
+    // O(n)
     @Override
     public Entity removeMaxValue() {
-        Entity res = null;
-        for (Entity entity : set) {
-            if (res == null || entity.getValue() > res.getValue()) {
-                res = entity;
+        int maxValue = Integer.MIN_VALUE;
+        for (Integer key : map.keySet()) {
+            if (key > maxValue) {
+                maxValue = key;
             }
         }
-        set.remove(res);
-        return res;
+        return map.remove(maxValue);
     }
 }

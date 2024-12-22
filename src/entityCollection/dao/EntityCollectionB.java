@@ -12,11 +12,13 @@ public class EntityCollectionB implements EntityCollection {
         set = new TreeSet<>(Comparator.comparingInt(Entity::getValue));
     }
 
+    // O(log n)
     @Override
     public void add(Entity entity) {
         set.add(entity);
     }
 
+    // O(log n)
     @Override
     public Entity removeMaxValue() {
         return set.pollLast();
